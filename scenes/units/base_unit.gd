@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimatedSprite2D = %AnimationPlayer
 @onready var unit_state_machine: UnitStateMachine = %UnitStateMachine
+@onready var debug_state_rect: ColorRect = %DebugStateRect
+@onready var debug_state_label: Label = %DebugStateLabel
 
 
 func _input(event: InputEvent) -> void:

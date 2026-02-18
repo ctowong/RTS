@@ -2,6 +2,7 @@ extends UnitState
 
 
 func enter() -> void:
+	_update_debug_state_info()
 	unit.animation_player.play("run")
 
 
