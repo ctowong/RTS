@@ -14,9 +14,13 @@ func on_input(event: InputEvent) -> void:
 func move_and_slide() -> bool:
 	var input_direction = Input.get_vector("unit_move_left", "unit_move_right", "unit_move_up", "unit_move_down")
 	unit.velocity = input_direction * unit.speed
+	
+	if unit.velocity.x == 0 and unit.velocity.y == 0:
+		transition_requested.emit(self, State.IDLE)
+		return false
+	
 	if unit.velocity.x < 0:
 		unit.animation_player.flip_h = true
 	elif unit.velocity.x > 0:
 		unit.animation_player.flip_h = false
-	
 	return unit.move_and_slide()
