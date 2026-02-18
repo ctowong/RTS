@@ -35,6 +35,10 @@ func move_and_slide() -> bool:
 	return false
 
 
+func recheck_ai():
+	pass
+
+
 func _update_debug_state_info() -> void:
 	assert(unit, "unit should not be null")
 	if unit:

@@ -1,5 +1,7 @@
 extends UnitState
 
+const MIN_MOVEMENT_POS_DELTA = 5 # don't move if pixel difference less than this amountfunc enter() -> void:
+
 
 func enter() -> void:
 	_update_debug_state_info()
@@ -12,13 +14,15 @@ func on_input(event: InputEvent) -> void:
 
 
 func move_and_slide() -> bool:
-	var input_direction = Input.get_vector("unit_move_left", "unit_move_right", "unit_move_up", "unit_move_down")
-	unit.velocity = input_direction * unit.speed
-	
-	if unit.velocity.x == 0 and unit.velocity.y == 0:
+	var vector_to_target = unit.target_position - unit.global_position
+
+	# If distance is too small, do not move
+	if vector_to_target.length() < MIN_MOVEMENT_POS_DELTA:
+		unit.velocity = Vector2(0.0, 0.0)
 		transition_requested.emit(self, State.IDLE)
 		return false
 	
+	unit.velocity = vector_to_target.normalized() * unit.speed
 	if unit.velocity.x < 0:
 		unit.animation_player.flip_h = true
 	elif unit.velocity.x > 0:

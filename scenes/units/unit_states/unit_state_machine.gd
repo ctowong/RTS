@@ -56,3 +56,9 @@ func move_and_slide() -> bool:
 		return current_state.move_and_slide()
 	else:
 		return false
+
+
+func recheck_ai() -> void:
+	assert(current_state, "current_state should be not null")
+	if current_state:
+		current_state.recheck_ai()
