@@ -239,6 +239,9 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7f48"]
+size = Vector2(59, 93)
+
 [node name="BaseUnit" type="CharacterBody2D" unique_id=1848674949]
 script = ExtResource("1_ub4qv")
 
@@ -278,6 +281,7 @@ offset_left = -51.0
 offset_top = 1.0
 offset_right = 69.0
 offset_bottom = 26.0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugStateRect" type="ColorRect" parent="Debug" unique_id=527434802]
@@ -306,3 +310,28 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Test"
+
+[node name="UI" type="Control" parent="." unique_id=130690673]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -2.0
+offset_right = 40.0
+offset_bottom = 38.0
+mouse_filter = 1
+
+[node name="SelectedSquare" type="ColorRect" parent="UI" unique_id=1386863739]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -55.0
+offset_top = -87.0
+offset_right = -15.0
+offset_bottom = -47.0
+color = Color(2.4065375e-07, 0.7410049, 0.43735793, 1)
+
+[node name="MouseSelectArea" type="Area2D" parent="." unique_id=289615559]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelectArea" unique_id=2014813001]
+position = Vector2(0.5, -37.5)
+shape = SubResource("RectangleShape2D_m7f48")
+
+[connection signal="input_event" from="MouseSelectArea" to="." method="_on_mouse_select_area_input_event"]
