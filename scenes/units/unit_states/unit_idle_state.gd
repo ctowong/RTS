@@ -1,6 +1,6 @@
 extends UnitState
 
-const MIN_MOVEMENT_POS_DELTA = 20 # don't move if pixel difference less than this amount
+const MIN_MOVEMENT_POS_DELTA: float = 20.0 # don't move if pixel difference less than this amount
 
 
 func enter() -> void:

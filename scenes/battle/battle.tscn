@@ -13,7 +13,7 @@ script = ExtResource("2_xd4uy")
 [node name="BaseUnit" parent="UnitHandler" unique_id=1848674949 instance=ExtResource("1_7gynk")]
 position = Vector2(507, 243)
 
-[node name="BaseUnit2" parent="UnitHandler" unique_id=668013760 instance=ExtResource("1_7gynk")]
+[node name="BaseUnit2" parent="UnitHandler" unique_id=719083008 instance=ExtResource("1_7gynk")]
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=161730821]
 unique_name_in_owner = true
