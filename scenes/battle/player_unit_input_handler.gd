@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 	_handle_movement(event)
 
 
-func _update_drag_area(event: InputEvent):
+func _update_drag_area(_event: InputEvent):
 	if select_mouse_held_down:
 		var vector_from_start_of_hold: Vector2 = abs(select_mouse_held_start_global_position - get_global_mouse_position())
 		if vector_from_start_of_hold.length() >= MIN_DISTANCE_TO_START_DRAG:

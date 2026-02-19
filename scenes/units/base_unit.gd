@@ -1,6 +1,8 @@
 class_name BaseUnit
 extends CharacterBody2D
 
+const GREEN_OUTLINE_MATERIAL = preload("uid://d1famrkepecih")
+
 @export var speed: float = 100.0
 @export var unit_name: String = "default_unit_name"
 @export var collision_shape_radius: float = 20.0
@@ -10,7 +12,6 @@ extends CharacterBody2D
 @onready var unit_state_machine: UnitStateMachine = %UnitStateMachine
 @onready var debug_state_rect: ColorRect = %DebugStateRect
 @onready var debug_state_label: Label = %DebugStateLabel
-@onready var selected_square: ColorRect = %SelectedSquare
 @onready var mouse_select_area: CollisionShape2D = %MouseSelectArea
 
 var target_position: Vector2
@@ -43,7 +44,10 @@ func move_to(new_target_position: Vector2):
 
 func _set_selected(value: bool) -> void:
 	is_selected = value
-	selected_square.visible = value
+	if value:
+		animation_player.material = GREEN_OUTLINE_MATERIAL
+	else:
+		animation_player.material = null
 
 
 func in_selection_area(global_position_value: Vector2) -> bool:
@@ -51,10 +55,6 @@ func in_selection_area(global_position_value: Vector2) -> bool:
 
 	var rect_global_position: Vector2 = mouse_select_area.shape.get_rect().position + global_position  - Vector2(0,mouse_select_area.shape.get_rect().size.y/2)
 	var rect_global_end: Vector2 = mouse_select_area.shape.get_rect().end + global_position - Vector2(0,mouse_select_area.shape.get_rect().size.y/2)
-	
-	print("global_position %s" % global_position_value)
-	print("rect_global_position %s" % rect_global_position)
-	print("rect_global_end %s" % rect_global_end)
 
 	var result: bool = (
 			 global_position_value.x >= rect_global_position.x
