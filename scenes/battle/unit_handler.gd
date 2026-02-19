@@ -6,4 +6,8 @@ var units: Array[BaseUnit] = []
 func _ready() -> void:
 	for child in get_children():
 		if child is BaseUnit:
-			units.append(child)
+			add_unit(child) 
+
+
+func add_unit(unit: BaseUnit) -> void:
+	units.append(unit)

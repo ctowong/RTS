@@ -7,6 +7,5 @@ extends Node2D
 @onready var base_unit_2: BaseUnit = $UnitHandler/BaseUnit2
 
 func _ready() -> void:
-	base_unit.unit_selected.connect(player_unit_input_handler.single_unit_select)
-	base_unit_2.unit_selected.connect(player_unit_input_handler.single_unit_select)
+	player_unit_input_handler.unit_handler = unit_handler
 	

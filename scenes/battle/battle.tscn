@@ -5,22 +5,37 @@
 [ext_resource type="Script" uid="uid://bbguvi5othpwb" path="res://scenes/battle/unit_handler.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://5ymvubwn0ihg" path="res://scenes/battle/player_unit_input_handler.gd" id="4_0yh6x"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9607843, 0.33333334, 0.8)
+
 [node name="Battle" type="Node2D" unique_id=1474264238]
 script = ExtResource("1_ffvsa")
 
 [node name="UnitHandler" type="Node2D" parent="." unique_id=1885975638]
 unique_name_in_owner = true
+y_sort_enabled = true
 script = ExtResource("2_xd4uy")
 
 [node name="BaseUnit" parent="UnitHandler" unique_id=1848674949 instance=ExtResource("1_7gynk")]
 position = Vector2(507, 243)
 
 [node name="BaseUnit2" parent="UnitHandler" unique_id=719083008 instance=ExtResource("1_7gynk")]
-position = Vector2(332, 204)
+position = Vector2(331, 208)
 
 [node name="PlayerUnitInputHandler" type="Node2D" parent="." unique_id=1615960026]
 unique_name_in_owner = true
 script = ExtResource("4_0yh6x")
+
+[node name="SelectionBox" type="Panel" parent="PlayerUnitInputHandler" unique_id=133994408]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0yh6x")
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=161730821]
 unique_name_in_owner = true

@@ -240,7 +240,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7f48"]
-size = Vector2(59, 93)
+size = Vector2(70, 80)
 
 [node name="BaseUnit" type="CharacterBody2D" unique_id=1848674949]
 script = ExtResource("1_ub4qv")
@@ -328,10 +328,11 @@ offset_right = -15.0
 offset_bottom = -47.0
 color = Color(2.4065375e-07, 0.7410049, 0.43735793, 1)
 
-[node name="MouseSelectArea" type="Area2D" parent="." unique_id=289615559]
+[node name="Area2D" type="Area2D" parent="." unique_id=41975366]
+position = Vector2(0, -40)
+collision_layer = 0
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseSelectArea" unique_id=2014813001]
-position = Vector2(0.5, -37.5)
+[node name="MouseSelectArea" type="CollisionShape2D" parent="Area2D" unique_id=2014813001]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_m7f48")
-
-[connection signal="input_event" from="MouseSelectArea" to="." method="_on_mouse_select_area_input_event"]

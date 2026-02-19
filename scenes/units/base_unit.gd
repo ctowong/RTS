@@ -1,8 +1,6 @@
 class_name BaseUnit
 extends CharacterBody2D
 
-signal unit_selected(which_unit: BaseUnit)
-
 @export var speed: float = 100.0
 @export var unit_name: String = "default_unit_name"
 @export var collision_shape_radius: float = 20.0
@@ -13,6 +11,7 @@ signal unit_selected(which_unit: BaseUnit)
 @onready var debug_state_rect: ColorRect = %DebugStateRect
 @onready var debug_state_label: Label = %DebugStateLabel
 @onready var selected_square: ColorRect = %SelectedSquare
+@onready var mouse_select_area: CollisionShape2D = %MouseSelectArea
 
 var target_position: Vector2
 var is_selected: bool : set = _set_selected
@@ -47,6 +46,21 @@ func _set_selected(value: bool) -> void:
 	selected_square.visible = value
 
 
-func _on_mouse_select_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action("battle_action_select") and event.is_released():
-		unit_selected.emit(self)
+func in_selection_area(global_position_value: Vector2) -> bool:
+	# subtract half the height of the box since the box is aligned to the bottom of the unit
+
+	var rect_global_position: Vector2 = mouse_select_area.shape.get_rect().position + global_position  - Vector2(0,mouse_select_area.shape.get_rect().size.y/2)
+	var rect_global_end: Vector2 = mouse_select_area.shape.get_rect().end + global_position - Vector2(0,mouse_select_area.shape.get_rect().size.y/2)
+	
+	print("global_position %s" % global_position_value)
+	print("rect_global_position %s" % rect_global_position)
+	print("rect_global_end %s" % rect_global_end)
+
+	var result: bool = (
+			 global_position_value.x >= rect_global_position.x
+			and global_position_value.x <= rect_global_end.x
+			and global_position_value.y >= rect_global_position.y
+			and global_position_value.y <= rect_global_end.y
+	)
+	
+	return result
