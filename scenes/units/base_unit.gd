@@ -3,9 +3,8 @@ extends CharacterBody2D
 
 const GREEN_OUTLINE_MATERIAL = preload("uid://d1famrkepecih")
 
-@export var speed: float = 100.0
-@export var unit_name: String = "default_unit_name"
 @export var collision_shape_radius: float = 20.0
+@export var unit_stats: UnitStats: set = _set_unit_stats
 
 @onready var collision_shape: CollisionShape2D = %CollisionShape
 @onready var animation_player: AnimatedSprite2D = %AnimationPlayer
@@ -50,6 +49,17 @@ func _set_selected(value: bool) -> void:
 		animation_player.material = null
 
 
+func _set_unit_stats(value: UnitStats) -> void:
+	unit_stats = value.create_instance()
+	
+	if not unit_stats.stats_changed.is_connected(_update_stats):
+		unit_stats.stats_changed.connect(_update_stats)
+
+
+func _update_stats() -> void:
+	pass
+
+
 func in_selection_area(global_position_value: Vector2) -> bool:
 	# subtract half the height of the box since the box is aligned to the bottom of the unit
 
@@ -64,3 +74,4 @@ func in_selection_area(global_position_value: Vector2) -> bool:
 	)
 	
 	return result
+	

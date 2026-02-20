@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://4s4elaw7pkcb"]
+
+[ext_resource type="Texture2D" uid="uid://cw0rct7dj4gb8" path="res://assets/sprites/ui/slots/Banner_Slots.png" id="1_th158"]
+[ext_resource type="Script" uid="uid://br56i1xm5xco8" path="res://scenes/ui/unit_stat_mini_ui.gd" id="1_vbubk"]
+[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior.tres" id="2_ebayu"]
+[ext_resource type="Texture2D" uid="uid://cgjnhqaxto10q" path="res://assets/sprites/units/avatars/Avatar_Warrior_Red.png" id="3_njxu0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbubk"]
+atlas = ExtResource("1_th158")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njxu0"]
+bg_color = Color(0.0026604603, 0.06668516, 0.12073871, 0.23529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebayu"]
+bg_color = Color(0.17756936, 0.86969596, 0.5011607, 1)
+
+[node name="UnitStatMiniUI" type="Control" unique_id=868222068]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_vbubk")
+unit_stat = ExtResource("2_ebayu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2113008269]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vbubk")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=30552169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer" unique_id=280884703]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Portrait" type="TextureRect" parent="Background/MarginContainer/VBoxContainer" unique_id=1824305704]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_njxu0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Background/MarginContainer/VBoxContainer" unique_id=1308571749]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HPBar" type="ProgressBar" parent="Background/MarginContainer/VBoxContainer/Control" unique_id=384698313]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_njxu0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ebayu")
+value = 50.0
+show_percentage = false
+
+[node name="Control2" type="Control" parent="Background/MarginContainer/VBoxContainer" unique_id=472811290]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2

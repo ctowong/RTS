@@ -10,8 +10,4 @@ func enter() -> void:
 
 
 func _finished_attacking() -> void:
-	var input_direction = Input.get_vector("unit_move_left", "unit_move_right", "unit_move_up", "unit_move_down")
-	if input_direction.abs().x > 0 or input_direction.abs().y > 0:
-		transition_requested.emit(self, UnitState.State.RUNNING)
-	else:
-		transition_requested.emit(self, UnitState.State.IDLE)
+	transition_requested.emit(self, UnitState.State.IDLE)

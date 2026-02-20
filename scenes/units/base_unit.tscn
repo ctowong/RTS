@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vb55jh72j3x" path="res://assets/sprites/units/warrior/Warrior_Attack1_Blue.png" id="1_vep1a"]
 [ext_resource type="Material" uid="uid://d1famrkepecih" path="res://assets/textures/green_outline_material.tres" id="2_52bft"]
 [ext_resource type="Texture2D" uid="uid://bmkawlgw3kqcq" path="res://assets/sprites/units/warrior/Warrior_Attack2_Blue.png" id="2_ub4qv"]
+[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior.tres" id="2_xfqsr"]
 [ext_resource type="Texture2D" uid="uid://bh8bqqfxu3use" path="res://assets/sprites/units/warrior/Warrior_Guard_Blue.png" id="3_3w63b"]
 [ext_resource type="Texture2D" uid="uid://d0upx2y63rs2f" path="res://assets/sprites/units/warrior/Warrior_Idle_Blue.png" id="4_elw4r"]
 [ext_resource type="Texture2D" uid="uid://c7k8tbijx6gd" path="res://assets/sprites/units/warrior/Warrior_Run_Blue.png" id="5_32ppi"]
@@ -245,6 +246,7 @@ size = Vector2(70, 80)
 
 [node name="BaseUnit" type="CharacterBody2D" unique_id=1848674949]
 script = ExtResource("1_ub4qv")
+unit_stats = ExtResource("2_xfqsr")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=245201036]
 unique_name_in_owner = true

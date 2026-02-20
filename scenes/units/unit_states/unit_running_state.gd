@@ -37,7 +37,7 @@ func move_and_slide() -> bool:
 		_return_to_idle()
 		return false
 	
-	unit.velocity = vector_to_target.normalized() * unit.speed
+	unit.velocity = vector_to_target.normalized() * unit.unit_stats.speed
 	if unit.velocity.x < 0:
 		unit.animation_player.flip_h = true
 	elif unit.velocity.x > 0:
@@ -54,7 +54,7 @@ func _update_stall_time() -> void:
 	# if unit moved less than max velocity after the last tick, start the stalled movement timer
 	var amount_moved_since_last_delta: float = abs(last_position - unit.global_position).length()
 	# If unit moves less than half the expected speed in a given delta, assume unit is stalled
-	if  amount_moved_since_last_delta < unit.speed / 2 * get_physics_process_delta_time():
+	if  amount_moved_since_last_delta < unit.unit_stats.speed / 2 * get_physics_process_delta_time():
 		# if the unit is not currently stalled, restart the timer
 		if not is_stalled:
 			is_stalled = true
