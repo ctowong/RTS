@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://hmeryarrcif8"]
+
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="1_7ixw6"]
+[ext_resource type="Texture2D" uid="uid://b81qjtie42587" path="res://assets/sprites/units/avatars/Avatar_Warrior_Blue.png" id="1_mehrk"]
+[ext_resource type="PackedScene" uid="uid://cejka4xqg418u" path="res://scenes/units/animations/warrior_animation.tscn" id="3_ckf0k"]
+
+[resource]
+script = ExtResource("1_7ixw6")
+portrait = ExtResource("1_mehrk")
+unit_animation = ExtResource("3_ckf0k")
+name = "Warrior"
+max_hp = 300.0
+attack_damage = 10.0
+attack_range = 100.0
+armor = 10.0
+armor_type = 2
+speed = 150.0
+metadata/_custom_type_script = "uid://drrd8j5oxkj1s"

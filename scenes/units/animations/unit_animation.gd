@@ -1,0 +1,2 @@
+class_name UnitAnimation
+extends AnimatedSprite2D

@@ -5,7 +5,7 @@ const MIN_MOVEMENT_POS_DELTA: float = 20.0 # don't move if pixel difference less
 
 func enter() -> void:
 	_update_debug_state_info()
-	unit.animation_player.play("idle")
+	unit.unit_animation.play("idle")
 	
 	# make sure unit does not move when re-entering idle
 	unit.target_position = unit.global_position
