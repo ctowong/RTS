@@ -10,7 +10,7 @@ var last_position: Vector2
 func enter() -> void:
 	_update_debug_state_info()
 	stalled_movement_time = 0.0
-	unit.animation_player.play("run")
+	unit.unit_animation.play("run")
 	last_position = unit.global_position
 
 
@@ -39,9 +39,9 @@ func move_and_slide() -> bool:
 	
 	unit.velocity = vector_to_target.normalized() * unit.unit_stats.speed
 	if unit.velocity.x < 0:
-		unit.animation_player.flip_h = true
+		unit.unit_animation.flip_h = true
 	elif unit.velocity.x > 0:
-		unit.animation_player.flip_h = false
+		unit.unit_animation.flip_h = false
 	
 	return unit.move_and_slide()
 	

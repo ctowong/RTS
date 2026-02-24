@@ -9,7 +9,7 @@ enum ArmorType {LIGHT, MEDIUM, HEAVY}
 
 @export_group("Visuals")
 @export var portrait: Texture
-@export var visuals: PackedScene
+@export var unit_animation: PackedScene
 @export_multiline var name: String
 
 @export_group("Gameplay Data")

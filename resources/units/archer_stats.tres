@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://dxwonkunmv0d3"]
+
+[ext_resource type="Texture2D" uid="uid://chdhr14g683nv" path="res://assets/sprites/units/avatars/Avatar_Archer_Blue.png" id="1_vm2q6"]
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="2_5be7o"]
+[ext_resource type="PackedScene" uid="uid://blxspiwjv78x0" path="res://scenes/units/animations/archer_animation.tscn" id="3_5be7o"]
+
+[resource]
+script = ExtResource("2_5be7o")
+portrait = ExtResource("1_vm2q6")
+unit_animation = ExtResource("3_5be7o")
+name = "Archer"
+max_hp = 200.0
+attack_damage = 8.0
+attack_range = 500.0
+damage_type = 1
+armor = 5.0
+armor_type = 1
+speed = 125.0
+metadata/_custom_type_script = "uid://drrd8j5oxkj1s"

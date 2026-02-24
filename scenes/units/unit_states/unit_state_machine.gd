@@ -12,7 +12,8 @@ func init(unit: BaseUnit) -> void:
 	for child in get_children():
 		if child is UnitState:
 			states[child.state] = child
-			child.transition_requested.connect(_on_transition_requested)
+			if (!child.transition_requested.is_connected(_on_transition_requested)):
+				child.transition_requested.connect(_on_transition_requested)
 			child.unit = unit
 		else:
 			print_debug("Child of UnitStateMachine is not a UnitState")

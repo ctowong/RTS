@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b2tmpg1begmo3" path="res://scenes/units/base_unit.gd" id="1_ub4qv"]
 [ext_resource type="Texture2D" uid="uid://b2vb55jh72j3x" path="res://assets/sprites/units/warrior/Warrior_Attack1_Blue.png" id="1_vep1a"]
-[ext_resource type="Material" uid="uid://d1famrkepecih" path="res://assets/textures/green_outline_material.tres" id="2_52bft"]
 [ext_resource type="Texture2D" uid="uid://bmkawlgw3kqcq" path="res://assets/sprites/units/warrior/Warrior_Attack2_Blue.png" id="2_ub4qv"]
-[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior.tres" id="2_xfqsr"]
+[ext_resource type="Resource" uid="uid://dxwonkunmv0d3" path="res://resources/units/archer_stats.tres" id="2_xfqsr"]
 [ext_resource type="Texture2D" uid="uid://bh8bqqfxu3use" path="res://assets/sprites/units/warrior/Warrior_Guard_Blue.png" id="3_3w63b"]
+[ext_resource type="PackedScene" uid="uid://cejka4xqg418u" path="res://scenes/units/animations/warrior_animation.tscn" id="3_xfqsr"]
 [ext_resource type="Texture2D" uid="uid://d0upx2y63rs2f" path="res://assets/sprites/units/warrior/Warrior_Idle_Blue.png" id="4_elw4r"]
 [ext_resource type="Texture2D" uid="uid://c7k8tbijx6gd" path="res://assets/sprites/units/warrior/Warrior_Run_Blue.png" id="5_32ppi"]
 [ext_resource type="Script" uid="uid://dlvvm0iojyisy" path="res://scenes/units/unit_states/unit_state_machine.gd" id="7_3w63b"]
@@ -15,6 +15,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5kwpv"]
 resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7f48"]
+size = Vector2(70, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7f48"]
 atlas = ExtResource("1_vep1a")
@@ -128,7 +131,7 @@ region = Rect2(768, 0, 192, 192)
 atlas = ExtResource("5_32ppi")
 region = Rect2(960, 0, 192, 192)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3xeri"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfqsr"]
 resource_local_to_scene = true
 animations = [{
 "frames": [{
@@ -241,9 +244,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7f48"]
-size = Vector2(70, 80)
-
 [node name="BaseUnit" type="CharacterBody2D" unique_id=1848674949]
 script = ExtResource("1_ub4qv")
 unit_stats = ExtResource("2_xfqsr")
@@ -251,13 +251,6 @@ unit_stats = ExtResource("2_xfqsr")
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=245201036]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_5kwpv")
-
-[node name="AnimationPlayer" type="AnimatedSprite2D" parent="." unique_id=989851703]
-unique_name_in_owner = true
-material = ExtResource("2_52bft")
-position = Vector2(3, -31)
-sprite_frames = SubResource("SpriteFrames_3xeri")
-animation = &"channel"
 
 [node name="UnitStateMachine" type="Node" parent="." unique_id=508796149 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
@@ -298,6 +291,7 @@ offset_top = -10.0
 offset_right = 109.0
 offset_bottom = 10.0
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DebugStateLabel" type="Label" parent="Debug" unique_id=1915456209]
 unique_name_in_owner = true
@@ -314,6 +308,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Test"
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=41975366]
 position = Vector2(0, -40)
@@ -323,3 +318,10 @@ collision_mask = 0
 [node name="MouseSelectArea" type="CollisionShape2D" parent="Area2D" unique_id=2014813001]
 unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_m7f48")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=828382289]
+
+[node name="UnitAnimation" parent="Visuals" unique_id=1883662954 instance=ExtResource("3_xfqsr")]
+unique_name_in_owner = true
+position = Vector2(3, -31)
+sprite_frames = SubResource("SpriteFrames_xfqsr")

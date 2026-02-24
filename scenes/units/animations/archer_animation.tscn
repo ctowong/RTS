@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://blxspiwjv78x0"]
+
+[ext_resource type="Texture2D" uid="uid://6j1t6hncn5k" path="res://assets/sprites/units/archer/Archer_Shoot_Blue.png" id="2_gbees"]
+[ext_resource type="Texture2D" uid="uid://bnseih8lhhfdi" path="res://assets/sprites/units/archer/Archer_Idle_Blue.png" id="3_kwyq4"]
+[ext_resource type="Texture2D" uid="uid://cmfkvn3wqwvdb" path="res://assets/sprites/units/archer/Archer_Run_Blue.png" id="4_3j7th"]
+[ext_resource type="Script" uid="uid://cas8tto3vpwe1" path="res://scenes/units/animations/unit_animation.gd" id="7_5kr2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6jcy"]
+atlas = ExtResource("2_gbees")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyrf5"]
+atlas = ExtResource("2_gbees")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muxtb"]
+atlas = ExtResource("2_gbees")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m2yh"]
+atlas = ExtResource("2_gbees")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyxes"]
+atlas = ExtResource("2_gbees")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kr2c"]
+atlas = ExtResource("2_gbees")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4im4u"]
+atlas = ExtResource("2_gbees")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x731h"]
+atlas = ExtResource("2_gbees")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60uvr"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf5i3"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xniqf"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1viw"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on2t4"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0agu"]
+atlas = ExtResource("3_kwyq4")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja4v2"]
+atlas = ExtResource("4_3j7th")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2svr"]
+atlas = ExtResource("4_3j7th")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbhh3"]
+atlas = ExtResource("4_3j7th")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7rfs"]
+atlas = ExtResource("4_3j7th")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xeri"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6jcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyrf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muxtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m2yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyxes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kr2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4im4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x731h")
+}],
+"loop": false,
+"name": &"attack1",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60uvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf5i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xniqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1viw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on2t4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0agu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja4v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2svr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbhh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7rfs")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[node name="Archer" type="AnimatedSprite2D" unique_id=1883662954]
+position = Vector2(0, -36)
+sprite_frames = SubResource("SpriteFrames_3xeri")
+animation = &"run"
+frame_progress = 0.5675217
+script = ExtResource("7_5kr2c")

@@ -7,11 +7,12 @@ const GREEN_OUTLINE_MATERIAL = preload("uid://d1famrkepecih")
 @export var unit_stats: UnitStats: set = _set_unit_stats
 
 @onready var collision_shape: CollisionShape2D = %CollisionShape
-@onready var animation_player: AnimatedSprite2D = %AnimationPlayer
+@onready var unit_animation: UnitAnimation = %UnitAnimation
 @onready var unit_state_machine: UnitStateMachine = %UnitStateMachine
 @onready var debug_state_rect: ColorRect = %DebugStateRect
 @onready var debug_state_label: Label = %DebugStateLabel
 @onready var mouse_select_area: CollisionShape2D = %MouseSelectArea
+@onready var visuals: Node2D = $Visuals
 
 var target_position: Vector2
 var is_selected: bool : set = _set_selected
@@ -43,17 +44,29 @@ func move_to(new_target_position: Vector2):
 
 func _set_selected(value: bool) -> void:
 	is_selected = value
-	if value:
-		animation_player.material = GREEN_OUTLINE_MATERIAL
-	else:
-		animation_player.material = null
+	if(unit_animation):
+		if value:
+			unit_animation.material = GREEN_OUTLINE_MATERIAL
+		else:
+			unit_animation.material = null
 
 
 func _set_unit_stats(value: UnitStats) -> void:
+	if (not is_node_ready()):
+		await ready
 	unit_stats = value.create_instance()
 	
 	if not unit_stats.stats_changed.is_connected(_update_stats):
 		unit_stats.stats_changed.connect(_update_stats)
+	
+	var new_unit_animation: UnitAnimation = value.unit_animation.instantiate()
+	for child in visuals.get_children():
+		if (child is UnitAnimation):
+			if (unit_animation):
+				unit_animation.queue_free()
+	visuals.add_child(new_unit_animation)
+	unit_animation = new_unit_animation
+	unit_state_machine.init(self)
 
 
 func _update_stats() -> void:
