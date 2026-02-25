@@ -46,7 +46,7 @@ func _set_selected(value: bool) -> void:
 	is_selected = value
 	if(unit_animation):
 		if value:
-			unit_animation.material = GREEN_OUTLINE_MATERIAL
+			unit_animation.material = unit_stats.OWNER_OUTLINE_MATERIAL[unit_stats.owner]
 		else:
 			unit_animation.material = null
 

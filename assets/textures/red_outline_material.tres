@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://by1ke0hqk0pii"]
+
+[ext_resource type="Shader" uid="uid://denlvgrw4omqh" path="res://assets/shaders/sprite_outline.gdshader" id="1_7kc40"]
+
+[resource]
+shader = ExtResource("1_7kc40")
+shader_parameter/color = Color(0.38039216, 0.96862745, 0.30588236, 0.7647059)
+shader_parameter/width = 2.634000125115
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true

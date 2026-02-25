@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dr6k05kiop8wn"]
+
+[ext_resource type="Shader" uid="uid://denlvgrw4omqh" path="res://assets/shaders/sprite_outline.gdshader" id="1_cfxom"]
+
+[resource]
+shader = ExtResource("1_cfxom")
+shader_parameter/color = Color(0.97, 0.90404004, 0.3104, 0.7647059)
+shader_parameter/width = 2.634000125115
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
