@@ -151,7 +151,7 @@ animations = [{
 }]
 
 [node name="Archer" type="AnimatedSprite2D" unique_id=1883662954]
-position = Vector2(0, -36)
+position = Vector2(1, -40)
 sprite_frames = SubResource("SpriteFrames_3xeri")
 animation = &"run"
 frame_progress = 0.5675217

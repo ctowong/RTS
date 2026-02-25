@@ -3,6 +3,7 @@ extends Node2D
 
 const MIN_DISTANCE_TO_START_DRAG: float = 100
 
+var battle_unit_selection_ui: BattleUnitSelectionUI
 var unit_handler: UnitHandler : set = _set_unit_handler
 var selected_units: Array[BaseUnit] = []
 var is_dragging: bool = false
@@ -59,11 +60,17 @@ func _handle_selection(event: InputEvent):
 						if child.in_selection_area(event.global_position):
 							selected_units.append(child)
 							child.is_selected = true
+							
+							selected_units.append(child)
+							var selected_unit_stats: Array[UnitStats] = []
+							selected_unit_stats.append(child.unit_stats)
+							battle_unit_selection_ui.unit_stats_list = selected_unit_stats
 							# break on first single click
 							return
 				
 				if is_dragging:
 					is_dragging = false
+					var selected_unit_stats: Array[UnitStats] = []
 					for child in unit_handler.units:
 						if (
 							child.global_position.x >= min(get_global_mouse_position().x, select_mouse_held_start_global_position.x)
@@ -73,8 +80,12 @@ func _handle_selection(event: InputEvent):
 						):
 							selected_units.append(child)
 							child.is_selected = true
-							
-					
+							selected_unit_stats.append(child.unit_stats)
+					battle_unit_selection_ui.unit_stats_list = selected_unit_stats
+			if selected_units.size() == 0:
+				var temp_unit_stats_list: Array[UnitStats] = []
+				battle_unit_selection_ui.unit_stats_list = temp_unit_stats_list
+
 
 func _handle_movement(event: InputEvent):
 	if event.is_action("battle_action_command"):

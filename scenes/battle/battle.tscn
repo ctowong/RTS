@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bbguvi5othpwb" path="res://scenes/battle/unit_handler.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://5ymvubwn0ihg" path="res://scenes/battle/player_unit_input_handler.gd" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="4_fisqk"]
+[ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="5_pll4o"]
 [ext_resource type="PackedScene" uid="uid://3fnae1a2hyly" path="res://scenes/ui/battle_unit_selection_ui.tscn" id="6_fh7rg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
@@ -29,6 +30,10 @@ unit_stats = ExtResource("4_fisqk")
 
 [node name="BaseUnit2" parent="UnitHandler" unique_id=719083008 instance=ExtResource("1_7gynk")]
 position = Vector2(331, 208)
+
+[node name="BaseUnit3" parent="UnitHandler" unique_id=1175937086 instance=ExtResource("1_7gynk")]
+position = Vector2(234, 347)
+unit_stats = ExtResource("5_pll4o")
 
 [node name="PlayerUnitInputHandler" type="Node2D" parent="." unique_id=1615960026]
 unique_name_in_owner = true
@@ -59,7 +64,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="BattleUnitSelectionUI" parent="BattleUI/HBoxContainer" unique_id=1282364949 instance=ExtResource("6_fh7rg")]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Spacer2" type="Control" parent="BattleUI/HBoxContainer" unique_id=1603145458]
 custom_minimum_size = Vector2(100, 0)

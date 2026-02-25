@@ -14,5 +14,5 @@ attack_damage = 10.0
 attack_range = 100.0
 armor = 10.0
 armor_type = 2
-speed = 150.0
+speed = 250.0
 metadata/_custom_type_script = "uid://drrd8j5oxkj1s"
