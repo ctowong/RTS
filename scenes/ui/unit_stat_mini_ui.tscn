@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cw0rct7dj4gb8" path="res://assets/sprites/ui/slots/Banner_Slots.png" id="1_th158"]
 [ext_resource type="Script" uid="uid://br56i1xm5xco8" path="res://scenes/ui/unit_stat_mini_ui.gd" id="1_vbubk"]
-[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior.tres" id="2_ebayu"]
+[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="2_ebayu"]
 [ext_resource type="Texture2D" uid="uid://cgjnhqaxto10q" path="res://assets/sprites/units/avatars/Avatar_Warrior_Red.png" id="3_njxu0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbubk"]

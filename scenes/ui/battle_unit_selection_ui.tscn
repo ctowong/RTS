@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://3fnae1a2hyly"]
+
+[ext_resource type="Texture2D" uid="uid://bnxctdyekyc3v" path="res://assets/sprites/ui/9patch/SpecialPaper.png" id="1_1r3ae"]
+[ext_resource type="Texture2D" uid="uid://ds03hhvmb7hlj" path="res://assets/sprites/ui/9patch/RegularPaper.png" id="2_fsi6w"]
+[ext_resource type="Texture2D" uid="uid://cgjnhqaxto10q" path="res://assets/sprites/units/avatars/Avatar_Warrior_Red.png" id="3_4nhtg"]
+[ext_resource type="Texture2D" uid="uid://dk51ov8e2auvp" path="res://assets/sprites/ui/bars/BigBar_Base.png" id="4_gitdb"]
+[ext_resource type="Texture2D" uid="uid://b02hxsg2lho8l" path="res://assets/sprites/ui/bars/BigBar_Fill.png" id="5_04k6a"]
+[ext_resource type="Texture2D" uid="uid://dmypb01stanob" path="res://assets/sprites/ui/bars/BigBar_Base_Top.png" id="6_n3i6i"]
+[ext_resource type="PackedScene" uid="uid://dn65h8ukxe5ii" path="res://scenes/ui/unit_stat_detailed_ui.tscn" id="7_fsi6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiw7q"]
+atlas = ExtResource("5_04k6a")
+region = Rect2(0, 19.578093, 64.74762, 24.374453)
+
+[node name="BattleUnitSelectionUI" type="NinePatchRect" unique_id=1282364949]
+custom_minimum_size = Vector2(1000, 300)
+texture = ExtResource("1_1r3ae")
+region_rect = Rect2(68, 77.5, 185, 165)
+patch_margin_left = 40
+patch_margin_top = 50
+patch_margin_right = 40
+patch_margin_bottom = 50
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=702179326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=637379707]
+layout_mode = 2
+
+[node name="PortraitBackground" type="NinePatchRect" parent="MarginContainer/HBoxContainer" unique_id=1592517736]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+texture = ExtResource("2_fsi6w")
+region_rect = Rect2(74, 79.5, 173, 157)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PortraitBackground" unique_id=1954041884]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer" unique_id=433665874]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer" unique_id=1715883078]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_4nhtg")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="HPBarBottom" type="NinePatchRect" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer" unique_id=85560102]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("4_gitdb")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom" unique_id=1169971591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom/MarginContainer" unique_id=438199478]
+layout_mode = 2
+value = 1.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_oiw7q")
+
+[node name="HPLabel" type="Label" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom/MarginContainer" unique_id=1362322874]
+layout_mode = 2
+text = "25"
+horizontal_alignment = 1
+
+[node name="HPBarTop" type="NinePatchRect" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom" unique_id=1157252532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_n3i6i")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PortraitBackground/MarginContainer/VBoxContainer" unique_id=416287009]
+layout_mode = 2
+
+[node name="MultiUnitSelectUI" type="GridContainer" parent="MarginContainer/HBoxContainer" unique_id=1138421008]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/MultiUnitSelectUI" unique_id=725970653]
+custom_minimum_size = Vector2(50, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_fsi6w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="UnitStatDetailedUi" parent="MarginContainer/HBoxContainer" unique_id=193001353 instance=ExtResource("7_fsi6w")]
+layout_mode = 2

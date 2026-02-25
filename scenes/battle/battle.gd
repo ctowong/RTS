@@ -7,5 +7,7 @@ extends Node2D
 @onready var base_unit_2: BaseUnit = $UnitHandler/BaseUnit2
 
 func _ready() -> void:
+	if not(is_node_ready()):
+		await(ready)
+
 	player_unit_input_handler.unit_handler = unit_handler
-	
