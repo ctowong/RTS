@@ -27,6 +27,10 @@ func _ready():
 
 
 func _set_unit_stats(value: UnitStats):
+	if (unit_stats != value and unit_stats):
+		if (unit_stats.stats_changed.is_connected(_update_ui)):
+			unit_stats.stats_changed.disconnect(_update_ui)
+	
 	if not (value.stats_changed.is_connected(_update_ui)):
 		value.stats_changed.connect(_update_ui)
 	unit_stats = value

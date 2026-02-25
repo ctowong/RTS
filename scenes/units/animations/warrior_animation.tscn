@@ -233,7 +233,7 @@ animations = [{
 }]
 
 [node name="Warrior" type="AnimatedSprite2D" unique_id=1883662954]
-position = Vector2(3, -39)
+position = Vector2(4, -38)
 sprite_frames = SubResource("SpriteFrames_3xeri")
 animation = &"channel"
 script = ExtResource("7_08wkt")

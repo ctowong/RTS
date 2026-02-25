@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://bupj6mu7bwxni"]
+
+[ext_resource type="Script" uid="uid://77170emm38mb" path="res://scenes/ui/unit_portrait_stat_ui.gd" id="1_go1s7"]
+[ext_resource type="Texture2D" uid="uid://ds03hhvmb7hlj" path="res://assets/sprites/ui/9patch/RegularPaper.png" id="1_v327p"]
+[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="2_abw0b"]
+[ext_resource type="Texture2D" uid="uid://cgjnhqaxto10q" path="res://assets/sprites/units/avatars/Avatar_Warrior_Red.png" id="2_go1s7"]
+[ext_resource type="Texture2D" uid="uid://dk51ov8e2auvp" path="res://assets/sprites/ui/bars/BigBar_Base.png" id="3_abw0b"]
+[ext_resource type="Texture2D" uid="uid://b02hxsg2lho8l" path="res://assets/sprites/ui/bars/BigBar_Fill.png" id="4_v32ux"]
+[ext_resource type="Texture2D" uid="uid://dmypb01stanob" path="res://assets/sprites/ui/bars/BigBar_Base_Top.png" id="5_tg8r3"]
+[ext_resource type="Texture2D" uid="uid://b86fubog6yxa7" path="res://assets/sprites/ui/bars/BigBarBlue_Fill.png" id="8_v32ux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiw7q"]
+atlas = ExtResource("8_v32ux")
+region = Rect2(0, 19.578093, 64.74762, 24.374453)
+
+[node name="UnitPortraitStatUI" type="Control" unique_id=49733975]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_go1s7")
+unit_stats = ExtResource("2_abw0b")
+
+[node name="PortraitBackground" type="NinePatchRect" parent="." unique_id=1739573625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v327p")
+region_rect = Rect2(74, 79.5, 173, 157)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="PortraitBackground" unique_id=74824440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PortraitBackground/MarginContainer" unique_id=1750686324]
+layout_mode = 2
+
+[node name="UnitPortrait" type="TextureRect" parent="PortraitBackground/MarginContainer/VBoxContainer" unique_id=133985922]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_go1s7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HPBarBottom" type="NinePatchRect" parent="PortraitBackground/MarginContainer/VBoxContainer" unique_id=449679644]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("3_abw0b")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom" unique_id=1847924359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HPBar" type="TextureProgressBar" parent="PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom/MarginContainer" unique_id=1311558554]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+value = 50.0
+nine_patch_stretch = true
+texture_progress = ExtResource("4_v32ux")
+
+[node name="HPLabel" type="Label" parent="PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom/MarginContainer" unique_id=961319721]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50/100"
+horizontal_alignment = 1
+
+[node name="HPBarTop" type="NinePatchRect" parent="PortraitBackground/MarginContainer/VBoxContainer/HPBarBottom" unique_id=705934173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tg8r3")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MPBarBottom" type="NinePatchRect" parent="PortraitBackground/MarginContainer/VBoxContainer" unique_id=378992670]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("3_abw0b")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="PortraitBackground/MarginContainer/VBoxContainer/MPBarBottom" unique_id=1739020635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MPBar" type="TextureProgressBar" parent="PortraitBackground/MarginContainer/VBoxContainer/MPBarBottom/MarginContainer" unique_id=126484401]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+max_value = 50.0
+value = 20.0
+nine_patch_stretch = true
+texture_progress = SubResource("AtlasTexture_oiw7q")
+
+[node name="MPLabel" type="Label" parent="PortraitBackground/MarginContainer/VBoxContainer/MPBarBottom/MarginContainer" unique_id=1778846715]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 23)
+layout_mode = 2
+text = "20/50"
+horizontal_alignment = 1
+
+[node name="MPBarTop" type="NinePatchRect" parent="PortraitBackground/MarginContainer/VBoxContainer/MPBarBottom" unique_id=402189805]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_tg8r3")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10

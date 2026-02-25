@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://dmu3hpc6xbi60"]
+
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="1_qtw6l"]
+[ext_resource type="Texture2D" uid="uid://cdd7xsows800m" path="res://assets/sprites/units/avatars/Avatar_Monk_Blue.png" id="1_x0qnd"]
+[ext_resource type="PackedScene" uid="uid://50lv7g2cecc7" path="res://scenes/units/animations/monk_animation.tscn" id="3_jrnkn"]
+
+[resource]
+script = ExtResource("1_qtw6l")
+portrait = ExtResource("1_x0qnd")
+unit_animation = ExtResource("3_jrnkn")
+name = "Monk"
+max_hp = 150.0
+max_mp = 250.0
+attack_damage = 3.0
+attack_range = 300.0
+damage_type = 2
+armor = 1.0
+speed = 50.0
+metadata/_custom_type_script = "uid://drrd8j5oxkj1s"
