@@ -212,8 +212,8 @@ animations = [{
 }]
 
 [node name="Monk" type="AnimatedSprite2D" unique_id=1883662954]
-position = Vector2(-2, -38)
 sprite_frames = SubResource("SpriteFrames_3xeri")
 animation = &"cast"
 frame_progress = 0.066728696
+offset = Vector2(0, -25)
 script = ExtResource("4_mu4ka")
