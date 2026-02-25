@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="5_tuvej"]
 
 [node name="MultiUnitSelectUI" type="ColorRect" unique_id=418826446]
-custom_minimum_size = Vector2(630, 220)
+custom_minimum_size = Vector2(625, 220)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
