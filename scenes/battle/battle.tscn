@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="6_py4tk"]
 [ext_resource type="Script" uid="uid://ckugpvqeie0gg" path="res://scenes/battle/battle_mouse_control_states/battle_mouse_control_base_state.gd" id="10_fisqk"]
 [ext_resource type="PackedScene" uid="uid://bin1dtj8meh6a" path="res://scenes/battle/mouse_selection_box.tscn" id="11_mxe8n"]
+[ext_resource type="Script" uid="uid://cpqw8aqg46id1" path="res://scenes/battle/battle_mouse_control_states/battle_mouse_control_dragging_state.gd" id="12_icoan"]
+[ext_resource type="Script" uid="uid://yydc4vdtd672" path="res://scenes/battle/battle_mouse_control_states/battle_mouse_control_handle_selection_state.gd" id="13_kd6yx"]
 
 [node name="Battle" type="Node2D" unique_id=1474264238]
 script = ExtResource("1_ffvsa")
@@ -62,16 +64,25 @@ script = ExtResource("4_0yh6x")
 
 [node name="MouseSelectionBox" parent="PlayerUnitInputHandler" unique_id=1630767094 instance=ExtResource("11_mxe8n")]
 unique_name_in_owner = true
-position = Vector2(586, 570)
 
 [node name="BattleMouseControlStateMachine" type="Node" parent="PlayerUnitInputHandler" unique_id=1360633692 node_paths=PackedStringArray("initial_state")]
 unique_name_in_owner = true
 script = ExtResource("2_oiw7q")
-initial_state = NodePath("BattleMouseControlState")
+initial_state = NodePath("BaseState")
 metadata/_custom_type_script = "uid://dpnv5g84ixvoo"
 
-[node name="BattleMouseControlState" type="Node" parent="PlayerUnitInputHandler/BattleMouseControlStateMachine" unique_id=410455154]
+[node name="BaseState" type="Node" parent="PlayerUnitInputHandler/BattleMouseControlStateMachine" unique_id=410455154]
 script = ExtResource("10_fisqk")
+metadata/_custom_type_script = "uid://bi3pbsl14yt8u"
+
+[node name="DraggingState" type="Node" parent="PlayerUnitInputHandler/BattleMouseControlStateMachine" unique_id=786702832]
+script = ExtResource("12_icoan")
+state = 1
+metadata/_custom_type_script = "uid://bi3pbsl14yt8u"
+
+[node name="BattleMouseControlState" type="Node" parent="PlayerUnitInputHandler/BattleMouseControlStateMachine" unique_id=1660683928]
+script = ExtResource("13_kd6yx")
+state = 2
 metadata/_custom_type_script = "uid://bi3pbsl14yt8u"
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=161730821]

@@ -19,19 +19,10 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	_update_drag_area(event)
-	_handle_selection(event)
-	_handle_movement(event)
-
-
-func _update_drag_area(_event: InputEvent):
-	if select_mouse_held_down:
-		mouse_selection_box.box_start_global_position = select_mouse_held_start_global_position
-		var vector_from_start_of_hold: Vector2 = abs(select_mouse_held_start_global_position - get_global_mouse_position())
-		if vector_from_start_of_hold.length() >= MIN_DISTANCE_TO_START_DRAG:
-			is_dragging = true
-	if is_dragging:
-		mouse_selection_box.box_end_global_position = get_global_mouse_position()
+	#update_drag_area(event)
+	#_handle_selection(event)
+	#_handle_movement(event)
+	pass
 
 
 
