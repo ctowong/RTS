@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var unit_name: Label = %UnitName
 @onready var unit_handler: UnitHandler = %UnitHandler
-@onready var player_unit_input_handler: PlayerUnitInputHandler = %PlayerUnitInputHandler
 @onready var battle_unit_selection_ui : BattleUnitSelectionUI = %BattleUnitSelectionUI
+@onready var battle_mouse_control_state_machine: BattleMouseControlStateMachine = %BattleMouseControlStateMachine
 
 @onready var player_warrior: BaseUnit = $UnitHandler/PlayerWarrior
 
@@ -13,8 +13,7 @@ func _ready() -> void:
 	
 	var unit_stats_list: Array[UnitStats] = []
 	battle_unit_selection_ui.unit_stats_list = []
-	player_unit_input_handler.unit_handler = unit_handler
-	player_unit_input_handler.battle_unit_selection_ui = battle_unit_selection_ui
+	battle_mouse_control_state_machine.init(unit_handler, battle_unit_selection_ui)
 	
 	_random_debug_function()
 

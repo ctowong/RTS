@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d0pcx4itoqjyl" path="res://scenes/units/base_unit.tscn" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://byo07rlvo6y7k" path="res://scenes/battle/battle.gd" id="1_ffvsa"]
+[ext_resource type="Script" uid="uid://dpnv5g84ixvoo" path="res://scenes/battle/battle_mouse_control_states/battle_mouse_control_state_machine.gd" id="2_oiw7q"]
 [ext_resource type="Script" uid="uid://bbguvi5othpwb" path="res://scenes/battle/unit_handler.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://5ymvubwn0ihg" path="res://scenes/battle/player_unit_input_handler.gd" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="4_fisqk"]
@@ -9,14 +10,8 @@
 [ext_resource type="Resource" uid="uid://bctu1xpf38h62" path="res://resources/units/warrior_enemy_stats.tres" id="6_agsc7"]
 [ext_resource type="PackedScene" uid="uid://3fnae1a2hyly" path="res://scenes/ui/battle_unit_selection_ui.tscn" id="6_fh7rg"]
 [ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="6_py4tk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0.9607843, 0.33333334, 0.8)
+[ext_resource type="Script" uid="uid://ckugpvqeie0gg" path="res://scenes/battle/battle_mouse_control_states/battle_mouse_control_base_state.gd" id="10_fisqk"]
+[ext_resource type="PackedScene" uid="uid://bin1dtj8meh6a" path="res://scenes/battle/mouse_selection_box.tscn" id="11_mxe8n"]
 
 [node name="Battle" type="Node2D" unique_id=1474264238]
 script = ExtResource("1_ffvsa")
@@ -65,11 +60,19 @@ unit_stats = ExtResource("4_fisqk")
 unique_name_in_owner = true
 script = ExtResource("4_0yh6x")
 
-[node name="SelectionBox" type="Panel" parent="PlayerUnitInputHandler" unique_id=133994408]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0yh6x")
+[node name="MouseSelectionBox" parent="PlayerUnitInputHandler" unique_id=1630767094 instance=ExtResource("11_mxe8n")]
+unique_name_in_owner = true
+position = Vector2(586, 570)
+
+[node name="BattleMouseControlStateMachine" type="Node" parent="PlayerUnitInputHandler" unique_id=1360633692 node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("2_oiw7q")
+initial_state = NodePath("BattleMouseControlState")
+metadata/_custom_type_script = "uid://dpnv5g84ixvoo"
+
+[node name="BattleMouseControlState" type="Node" parent="PlayerUnitInputHandler/BattleMouseControlStateMachine" unique_id=410455154]
+script = ExtResource("10_fisqk")
+metadata/_custom_type_script = "uid://bi3pbsl14yt8u"
 
 [node name="BattleUI" type="CanvasLayer" parent="." unique_id=161730821]
 unique_name_in_owner = true

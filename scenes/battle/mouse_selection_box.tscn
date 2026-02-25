@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bin1dtj8meh6a"]
+
+[ext_resource type="Script" uid="uid://blm83a7138e58" path="res://scenes/battle/mouse_selection_box.gd" id="1_b134i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvit4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.9607843, 0.33333334, 0.8)
+
+[node name="MouseSelectionBox" type="Area2D" unique_id=1630767094]
+script = ExtResource("1_b134i")
+
+[node name="SelectionCollisionShape" type="CollisionShape2D" parent="." unique_id=1432587939]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_xvit4")
+
+[node name="SelectionBoxUI" type="Panel" parent="." unique_id=1711041061]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0yh6x")

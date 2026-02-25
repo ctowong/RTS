@@ -11,11 +11,11 @@ var select_mouse_held_down: bool = false
 var select_mouse_held_start_global_position: Vector2
 
 
-@onready var selection_box: Panel = $SelectionBox
+@onready var mouse_selection_box: MouseSelectionBox = %MouseSelectionBox
 
 
 func _ready() -> void:
-	selection_box.hide()
+	mouse_selection_box.show()
 
 
 func _input(event: InputEvent) -> void:
@@ -26,16 +26,13 @@ func _input(event: InputEvent) -> void:
 
 func _update_drag_area(_event: InputEvent):
 	if select_mouse_held_down:
+		mouse_selection_box.box_start_global_position = select_mouse_held_start_global_position
 		var vector_from_start_of_hold: Vector2 = abs(select_mouse_held_start_global_position - get_global_mouse_position())
 		if vector_from_start_of_hold.length() >= MIN_DISTANCE_TO_START_DRAG:
 			is_dragging = true
 	if is_dragging:
-		selection_box.global_position = Vector2(
-					min(get_global_mouse_position().x, select_mouse_held_start_global_position.x),
-					min(get_global_mouse_position().y, select_mouse_held_start_global_position.y)
-		)
-		selection_box.set_size(abs(get_global_mouse_position() - select_mouse_held_start_global_position)) 
-		selection_box.show()
+		mouse_selection_box.box_end_global_position = get_global_mouse_position()
+
 
 
 func _handle_selection(event: InputEvent):
@@ -52,10 +49,11 @@ func _handle_selection(event: InputEvent):
 				select_mouse_held_start_global_position = event.global_position
 			elif event.is_released():
 				select_mouse_held_down = false
-				selection_box.hide()
+				mouse_selection_box.show()
 
 				# if time is too short, do a single select
 				if not is_dragging:
+					return
 					for child in unit_handler.units:
 						if child.in_selection_area(event.global_position):
 							selected_units.append(child)
@@ -71,21 +69,22 @@ func _handle_selection(event: InputEvent):
 				if is_dragging:
 					is_dragging = false
 					var selected_unit_stats: Array[UnitStats] = []
-					for child in unit_handler.units:
-						if (
-							child.global_position.x >= min(get_global_mouse_position().x, select_mouse_held_start_global_position.x)
-							and child.global_position.x <= max(get_global_mouse_position().x, select_mouse_held_start_global_position.x)
-							and child.global_position.y >= min(get_global_mouse_position().y, select_mouse_held_start_global_position.y)
-							and child.global_position.y <= max(get_global_mouse_position().y, select_mouse_held_start_global_position.y)
-						):
-							selected_units.append(child)
-							child.is_selected = true
-							selected_unit_stats.append(child.unit_stats)
-					selected_unit_stats.sort_custom(sort_units)
-					battle_unit_selection_ui.unit_stats_list = selected_unit_stats
+					#for child in unit_handler.units:
+					#	if (
+					#		child.global_position.x >= min(get_global_mouse_position().x, select_mouse_held_start_global_position.x)
+					#		and child.global_position.x <= max(get_global_mouse_position().x, select_mouse_held_start_global_position.x)
+					#		and child.global_position.y >= min(get_global_mouse_position().y, select_mouse_held_start_global_position.y)
+					#		and child.global_position.y <= max(get_global_mouse_position().y, select_mouse_held_start_global_position.y)
+					#	):
+					#		selected_units.append(child)
+					#		child.is_selected = true
+					#		selected_unit_stats.append(child.unit_stats)
+					#selected_unit_stats.sort_custom(sort_units)
+					#battle_unit_selection_ui.unit_stats_list = selected_unit_stats
 			if selected_units.size() == 0:
-				var temp_unit_stats_list: Array[UnitStats] = []
-				battle_unit_selection_ui.unit_stats_list = temp_unit_stats_list
+				#var temp_unit_stats_list: Array[UnitStats] = []
+				#battle_unit_selection_ui.unit_stats_list = temp_unit_stats_list
+				pass
 
 
 func _handle_movement(event: InputEvent):
