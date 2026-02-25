@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bbguvi5othpwb" path="res://scenes/battle/unit_handler.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://5ymvubwn0ihg" path="res://scenes/battle/player_unit_input_handler.gd" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="4_fisqk"]
-[ext_resource type="PackedScene" uid="uid://daoh14ha2bonf" path="res://scenes/ui/battle_unit_selection_ui.tscn" id="6_fh7rg"]
+[ext_resource type="PackedScene" uid="uid://3fnae1a2hyly" path="res://scenes/ui/battle_unit_selection_ui.tscn" id="6_fh7rg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
