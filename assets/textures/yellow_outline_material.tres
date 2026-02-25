@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_cfxom")
-shader_parameter/color = Color(0.97, 0.90404004, 0.3104, 0.7647059)
+shader_parameter/color = Color(0.87106, 0.97, 0.3104, 0.7647059)
 shader_parameter/width = 2.634000125115
 shader_parameter/pattern = 0
 shader_parameter/inside = false

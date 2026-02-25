@@ -4,12 +4,13 @@ extends Resource
 signal stats_changed
 
 enum OwnerType {PLAYER, ENEMY, NEUTRAL}
+enum TeamColor {BLUE, RED, YELLOW}
 enum DamageType {NORMAL, PIERCING, MAGIC}
 enum ArmorType {LIGHT, MEDIUM, HEAVY}
 
 const OWNER_OUTLINE_MATERIAL: Dictionary[OwnerType, Material] = {
-	OwnerType.PLAYER: preload("uid://by1ke0hqk0pii"), #GREEN_OUTLINE_MATERIAL
-	OwnerType.ENEMY: preload("uid://d1famrkepecih"), #RED_OUTLINE_MATERIAL
+	OwnerType.PLAYER: preload("uid://d1famrkepecih"), #GREEN_OUTLINE_MATERIAL
+	OwnerType.ENEMY: preload("uid://by1ke0hqk0pii"), #RED_OUTLINE_MATERIAL
 	OwnerType.NEUTRAL: preload("uid://dr6k05kiop8wn") #YELLOW_OUTLINE_MATERIAL
 }
 
