@@ -17,4 +17,5 @@ armor = 5.0
 armor_type = 1
 speed = 125.0
 owner = 1
+selection_sort_order = 102
 metadata/_custom_type_script = "uid://drrd8j5oxkj1s"

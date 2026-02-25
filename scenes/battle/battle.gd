@@ -5,6 +5,7 @@ extends Node2D
 @onready var player_unit_input_handler: PlayerUnitInputHandler = %PlayerUnitInputHandler
 @onready var battle_unit_selection_ui : BattleUnitSelectionUI = %BattleUnitSelectionUI
 
+@onready var player_warrior: BaseUnit = $UnitHandler/PlayerWarrior
 
 func _ready() -> void:
 	if not(is_node_ready()):
@@ -22,4 +23,3 @@ func _random_debug_function() -> void:
 	var timer: SceneTreeTimer = get_tree().create_timer(2)
 	await timer.timeout
 	print("been 2 seconds")	
-	

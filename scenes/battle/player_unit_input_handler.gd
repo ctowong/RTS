@@ -81,6 +81,7 @@ func _handle_selection(event: InputEvent):
 							selected_units.append(child)
 							child.is_selected = true
 							selected_unit_stats.append(child.unit_stats)
+					selected_unit_stats.sort_custom(sort_units)
 					battle_unit_selection_ui.unit_stats_list = selected_unit_stats
 			if selected_units.size() == 0:
 				var temp_unit_stats_list: Array[UnitStats] = []
@@ -104,3 +105,10 @@ func single_unit_select(selected_unit: BaseUnit) -> void:
 
 func _set_unit_handler(value: UnitHandler) -> void:
 	unit_handler = value
+
+func sort_units(a: UnitStats, b: UnitStats) -> bool:
+	if a.selection_sort_order <= b.selection_sort_order:
+		return true
+	elif (a.selection_sort_order == b.selection_sort_order) and (a.name <= b.name):
+		return true
+	return false

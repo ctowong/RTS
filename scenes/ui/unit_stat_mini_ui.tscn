@@ -14,11 +14,15 @@ bg_color = Color(0.0026604603, 0.06668516, 0.12073871, 0.23529412)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebayu"]
 bg_color = Color(0.17756936, 0.86969596, 0.5011607, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntylp"]
+bg_color = Color(0.15435395, 0.82851726, 0.8943941, 1)
+
 [node name="UnitStatMiniUI" type="Control" unique_id=868222068]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 50.0
+offset_bottom = 50.0
 script = ExtResource("1_vbubk")
 unit_stat = ExtResource("2_ebayu")
 
@@ -78,3 +82,17 @@ show_percentage = false
 [node name="Control2" type="Control" parent="Background/MarginContainer/VBoxContainer" unique_id=472811290]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+
+[node name="MPBar" type="ProgressBar" parent="Background/MarginContainer/VBoxContainer/Control2" unique_id=42067293]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_njxu0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ntylp")
+value = 50.0
+show_percentage = false

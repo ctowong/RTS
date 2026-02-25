@@ -29,6 +29,7 @@ const OWNER_OUTLINE_MATERIAL: Dictionary[OwnerType, Material] = {
 @export var armor_type: ArmorType
 @export var speed: float
 @export var owner: OwnerType
+@export var selection_sort_order: int
 
 var hp: float : set = _set_hp
 var mp: float : set = _set_mp

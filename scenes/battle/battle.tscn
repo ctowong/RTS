@@ -45,6 +45,22 @@ unit_stats = ExtResource("6_agsc7")
 position = Vector2(432, 486)
 unit_stats = ExtResource("6_py4tk")
 
+[node name="BaseUnit" parent="UnitHandler" unique_id=330893241 instance=ExtResource("1_7gynk")]
+position = Vector2(1132, 221)
+unit_stats = ExtResource("4_fisqk")
+
+[node name="BaseUnit2" parent="UnitHandler" unique_id=589126813 instance=ExtResource("1_7gynk")]
+position = Vector2(667, 441)
+unit_stats = ExtResource("6_py4tk")
+
+[node name="BaseUnit3" parent="UnitHandler" unique_id=532453625 instance=ExtResource("1_7gynk")]
+position = Vector2(196, 520)
+unit_stats = ExtResource("6_py4tk")
+
+[node name="BaseUnit4" parent="UnitHandler" unique_id=1120992495 instance=ExtResource("1_7gynk")]
+position = Vector2(770, 250)
+unit_stats = ExtResource("4_fisqk")
+
 [node name="PlayerUnitInputHandler" type="Node2D" parent="." unique_id=1615960026]
 unique_name_in_owner = true
 script = ExtResource("4_0yh6x")
