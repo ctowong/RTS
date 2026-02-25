@@ -16,7 +16,7 @@ func _ready() -> void:
 		if child is UnitStatMiniUI:
 			child.queue_free()
 
-	for i in range(1, 12):
+	for i in range(1, MAX_UNIT_SELECTION_COUNT):
 		var temp_mini_unit_stat_ui: UnitStatMiniUI = UNIT_STAT_MINI_UI.instantiate()
 		unit_grid.add_child(temp_mini_unit_stat_ui)
 		temp_mini_unit_stat_ui.unit_stat = null
@@ -39,5 +39,5 @@ func _update_unit_stats_list(value: Array[UnitStats]) -> void:
 		mini_unit_stat_ui_list[i].unit_stat = child
 		i += 1
 		
-		if i > 12:
+		if i > MAX_UNIT_SELECTION_COUNT:
 			break
