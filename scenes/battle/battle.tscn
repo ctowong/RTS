@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://bbguvi5othpwb" path="res://scenes/battle/unit_handler.gd" id="2_xd4uy"]
 [ext_resource type="Script" uid="uid://5ymvubwn0ihg" path="res://scenes/battle/player_unit_input_handler.gd" id="4_0yh6x"]
 [ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="4_fisqk"]
-[ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="5_pll4o"]
+[ext_resource type="Resource" uid="uid://dt2gyvaa3ueg7" path="res://resources/units/archer_enemy_stats.tres" id="5_pll4o"]
+[ext_resource type="Resource" uid="uid://bctu1xpf38h62" path="res://resources/units/warrior_enemy_stats.tres" id="6_agsc7"]
 [ext_resource type="PackedScene" uid="uid://3fnae1a2hyly" path="res://scenes/ui/battle_unit_selection_ui.tscn" id="6_fh7rg"]
+[ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="6_py4tk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yh6x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -24,16 +26,24 @@ unique_name_in_owner = true
 y_sort_enabled = true
 script = ExtResource("2_xd4uy")
 
-[node name="BaseUnit" parent="UnitHandler" unique_id=1848674949 instance=ExtResource("1_7gynk")]
+[node name="PlayerWarrior" parent="UnitHandler" unique_id=1848674949 instance=ExtResource("1_7gynk")]
 position = Vector2(507, 243)
 unit_stats = ExtResource("4_fisqk")
 
-[node name="BaseUnit2" parent="UnitHandler" unique_id=719083008 instance=ExtResource("1_7gynk")]
+[node name="PlayerArcher" parent="UnitHandler" unique_id=719083008 instance=ExtResource("1_7gynk")]
 position = Vector2(331, 208)
 
-[node name="BaseUnit3" parent="UnitHandler" unique_id=1175937086 instance=ExtResource("1_7gynk")]
+[node name="EnemyArcher" parent="UnitHandler" unique_id=1175937086 instance=ExtResource("1_7gynk")]
 position = Vector2(234, 347)
 unit_stats = ExtResource("5_pll4o")
+
+[node name="EnemyWarrior" parent="UnitHandler" unique_id=838587457 instance=ExtResource("1_7gynk")]
+position = Vector2(989, 419)
+unit_stats = ExtResource("6_agsc7")
+
+[node name="PlayerMonk" parent="UnitHandler" unique_id=1453757087 instance=ExtResource("1_7gynk")]
+position = Vector2(432, 486)
+unit_stats = ExtResource("6_py4tk")
 
 [node name="PlayerUnitInputHandler" type="Node2D" parent="." unique_id=1615960026]
 unique_name_in_owner = true

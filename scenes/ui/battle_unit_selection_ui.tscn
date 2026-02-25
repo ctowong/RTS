@@ -6,16 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bupj6mu7bwxni" path="res://scenes/ui/unit_portrait_stat_ui.tscn" id="5_fsi6w"]
 [ext_resource type="PackedScene" uid="uid://dn65h8ukxe5ii" path="res://scenes/ui/unit_stat_detailed_ui.tscn" id="7_fsi6w"]
 
-[node name="BattleUnitSelectionUI" type="Control" unique_id=1308322968]
-layout_mode = 3
-anchors_preset = 0
+[node name="BattleUnitSelectionUI" type="MarginContainer" unique_id=710200326]
+offset_right = 1000.0
+offset_bottom = 300.0
 script = ExtResource("2_4nhtg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1282364949]
 custom_minimum_size = Vector2(1000, 300)
-layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 300.0
+layout_mode = 2
 texture = ExtResource("1_1r3ae")
 region_rect = Rect2(68, 77.5, 185, 165)
 patch_margin_left = 40
