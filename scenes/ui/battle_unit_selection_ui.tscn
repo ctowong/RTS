@@ -2,20 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://bnxctdyekyc3v" path="res://assets/sprites/ui/9patch/SpecialPaper.png" id="1_1r3ae"]
 [ext_resource type="Script" uid="uid://ceuf5y07ql1mb" path="res://scenes/ui/battle_unit_selection_ui.gd" id="2_4nhtg"]
-[ext_resource type="Texture2D" uid="uid://ds03hhvmb7hlj" path="res://assets/sprites/ui/9patch/RegularPaper.png" id="2_fsi6w"]
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="2_fsi6w"]
+[ext_resource type="Resource" uid="uid://hmeryarrcif8" path="res://resources/units/warrior_stats.tres" id="3_4nhtg"]
+[ext_resource type="PackedScene" uid="uid://8wdfb47t40gu" path="res://scenes/ui/multi_unit_select_ui.tscn" id="4_po0k5"]
 [ext_resource type="PackedScene" uid="uid://bupj6mu7bwxni" path="res://scenes/ui/unit_portrait_stat_ui.tscn" id="5_fsi6w"]
 [ext_resource type="PackedScene" uid="uid://dn65h8ukxe5ii" path="res://scenes/ui/unit_stat_detailed_ui.tscn" id="7_fsi6w"]
 
-[node name="BattleUnitSelectionUI" type="Control" unique_id=1308322968]
-layout_mode = 3
-anchors_preset = 0
+[node name="BattleUnitSelectionUI" type="MarginContainer" unique_id=710200326]
+custom_minimum_size = Vector2(880, 300)
+offset_right = 800.0
+offset_bottom = 300.0
 script = ExtResource("2_4nhtg")
+unit_stats_list = Array[ExtResource("2_fsi6w")]([ExtResource("3_4nhtg")])
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1282364949]
-custom_minimum_size = Vector2(1000, 300)
-layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 300.0
+layout_mode = 2
 texture = ExtResource("1_1r3ae")
 region_rect = Rect2(68, 77.5, 185, 165)
 patch_margin_left = 40
@@ -43,23 +44,14 @@ layout_mode = 2
 [node name="PortraitBackground" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1739573625 instance=ExtResource("5_fsi6w")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="MultiUnitSelectUI" type="GridContainer" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=1138421008]
+[node name="MultiUnitSelectUI" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=606597422 instance=ExtResource("4_po0k5")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-size_flags_horizontal = 3
-columns = 6
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MarginContainer/HBoxContainer/MultiUnitSelectUI" unique_id=725970653]
-custom_minimum_size = Vector2(50, 150)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_fsi6w")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="UnitStatDetailedUi" parent="NinePatchRect/MarginContainer/HBoxContainer" unique_id=193001353 instance=ExtResource("7_fsi6w")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3

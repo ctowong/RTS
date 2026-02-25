@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://bctu1xpf38h62"]
+
+[ext_resource type="Texture2D" uid="uid://cgjnhqaxto10q" path="res://assets/sprites/units/avatars/Avatar_Warrior_Red.png" id="1_m7hhp"]
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="2_bnrk1"]
+[ext_resource type="PackedScene" uid="uid://sa1y7wakvsv4" path="res://scenes/units/animations/warrior_enemy_animation.tscn" id="3_bnrk1"]
+
+[resource]
+script = ExtResource("2_bnrk1")
+portrait = ExtResource("1_m7hhp")
+unit_animation = ExtResource("3_bnrk1")
+name = "Enemy Warrior"
+max_hp = 300.0
+attack_damage = 10.0
+attack_range = 100.0
+armor = 10.0
+armor_type = 2
+speed = 250.0
+owner = 1
+selection_sort_order = 100
+metadata/_custom_type_script = "uid://drrd8j5oxkj1s"

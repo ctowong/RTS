@@ -16,4 +16,5 @@ attack_range = 300.0
 damage_type = 2
 armor = 1.0
 speed = 50.0
+selection_sort_order = 10
 metadata/_custom_type_script = "uid://drrd8j5oxkj1s"

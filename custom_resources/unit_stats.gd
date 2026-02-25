@@ -3,9 +3,16 @@ extends Resource
 
 signal stats_changed
 
-enum Owner {PLAYER, ENEMY, NEUTRAL}
+enum OwnerType {PLAYER, ENEMY, NEUTRAL}
+enum TeamColor {BLUE, RED, YELLOW}
 enum DamageType {NORMAL, PIERCING, MAGIC}
 enum ArmorType {LIGHT, MEDIUM, HEAVY}
+
+const OWNER_OUTLINE_MATERIAL: Dictionary[OwnerType, Material] = {
+	OwnerType.PLAYER: preload("uid://d1famrkepecih"), #GREEN_OUTLINE_MATERIAL
+	OwnerType.ENEMY: preload("uid://by1ke0hqk0pii"), #RED_OUTLINE_MATERIAL
+	OwnerType.NEUTRAL: preload("uid://dr6k05kiop8wn") #YELLOW_OUTLINE_MATERIAL
+}
 
 @export_group("Visuals")
 @export var portrait: Texture
@@ -21,7 +28,8 @@ enum ArmorType {LIGHT, MEDIUM, HEAVY}
 @export var armor: float
 @export var armor_type: ArmorType
 @export var speed: float
-@export var owner: Owner
+@export var owner: OwnerType
+@export var selection_sort_order: int
 
 var hp: float : set = _set_hp
 var mp: float : set = _set_mp

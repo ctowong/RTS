@@ -9,4 +9,3 @@ shader_parameter/width = 2.634000125115
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
-shader_parameter/number_of_images = Vector2(1, 1)

@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://8wdfb47t40gu"]
+
+[ext_resource type="Script" uid="uid://c751bv76lhyu0" path="res://scenes/ui/multi_unit_select_ui.gd" id="1_iwm4l"]
+[ext_resource type="Script" uid="uid://drrd8j5oxkj1s" path="res://custom_resources/unit_stats.gd" id="2_h1ke6"]
+[ext_resource type="PackedScene" uid="uid://4s4elaw7pkcb" path="res://scenes/ui/unit_stat_mini_ui.tscn" id="2_pc7pn"]
+[ext_resource type="Resource" uid="uid://bctu1xpf38h62" path="res://resources/units/warrior_enemy_stats.tres" id="3_g36o7"]
+[ext_resource type="Resource" uid="uid://dt2gyvaa3ueg7" path="res://resources/units/archer_enemy_stats.tres" id="4_gtltt"]
+[ext_resource type="Resource" uid="uid://dmu3hpc6xbi60" path="res://resources/units/monk_stats.tres" id="5_tuvej"]
+
+[node name="MultiUnitSelectUI" type="ColorRect" unique_id=418826446]
+custom_minimum_size = Vector2(630, 220)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -110.0
+offset_right = 315.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_iwm4l")
+unit_stats_list = Array[ExtResource("2_h1ke6")]([ExtResource("3_g36o7"), ExtResource("4_gtltt"), ExtResource("5_tuvej")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2136149226]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.0
+offset_top = -107.0
+offset_right = 315.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="UnitGrid" type="GridContainer" parent="MarginContainer" unique_id=606597422]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 6
+
+[node name="UnitStatMiniUI" parent="MarginContainer/UnitGrid" unique_id=868222068 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI6" parent="MarginContainer/UnitGrid" unique_id=592888310 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI2" parent="MarginContainer/UnitGrid" unique_id=1135084977 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI3" parent="MarginContainer/UnitGrid" unique_id=225160938 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI4" parent="MarginContainer/UnitGrid" unique_id=63332681 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI7" parent="MarginContainer/UnitGrid" unique_id=950785386 instance=ExtResource("2_pc7pn")]
+layout_mode = 2
+
+[node name="UnitStatMiniUI5" parent="MarginContainer/UnitGrid" unique_id=1960450393 instance=ExtResource("2_pc7pn")]
+layout_mode = 2

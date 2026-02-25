@@ -39,9 +39,9 @@ func move_and_slide() -> bool:
 	
 	unit.velocity = vector_to_target.normalized() * unit.unit_stats.speed
 	if unit.velocity.x < 0:
-		unit.unit_animation.flip_h = true
+		unit.unit_animation.scale.x = -abs(unit.unit_animation.scale.x)
 	elif unit.velocity.x > 0:
-		unit.unit_animation.flip_h = false
+		unit.unit_animation.scale.x = abs(unit.unit_animation.scale.x)
 	
 	return unit.move_and_slide()
 	
