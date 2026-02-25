@@ -1,8 +1,6 @@
 class_name BaseUnit
 extends CharacterBody2D
 
-const GREEN_OUTLINE_MATERIAL = preload("uid://d1famrkepecih")
-
 @export var collision_shape_radius: float = 20.0
 @export var unit_stats: UnitStats: set = _set_unit_stats
 
@@ -44,6 +42,7 @@ func move_to(new_target_position: Vector2):
 
 func _set_selected(value: bool) -> void:
 	is_selected = value
+	
 	if(unit_animation):
 		if value:
 			unit_animation.material = unit_stats.OWNER_OUTLINE_MATERIAL[unit_stats.owner]
