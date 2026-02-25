@@ -12,25 +12,37 @@ extends Control
 @onready var unit_portrait: TextureRect = %UnitPortrait
 
 
+func _ready():
+	_update_ui()
+
+
 func _set_unit_stats(value: UnitStats) -> void:
 	if not is_node_ready():
 		await ready
-
+	
 	if (unit_stats != value and unit_stats):
 		if(unit_stats.stats_changed.is_connected(_update_ui)):
 			unit_stats.stats_changed.disconnect(_update_ui)
 	
+	unit_stats = value
 	if (value and not value.stats_changed.is_connected(_update_ui)):
-		unit_stats = value
 		unit_stats.stats_changed.connect(_update_ui)
-	
-	print("%s %s %s" % [unit_stats.name, unit_stats.mp, mp_bar.value])
+
 	_update_ui()
 
 
 func _update_ui() -> void:
-	assert(unit_stats, "unitstats should be populated")	
-	
+	if (not unit_stats):
+		unit_portrait.modulate = Color(0,0,0,0)
+		hp_bar_bottom.modulate = Color(0,0,0,0)
+		mp_bar_bottom.modulate = Color(0,0,0,0)
+		return
+	else:
+		unit_portrait.modulate = Color(1,1,1,1)
+		hp_bar_bottom.modulate = Color(1,1,1,1)
+		mp_bar_bottom.modulate = Color(1,1,1,1)
+		
+		
 	if (unit_stats.max_mp == 0):
 		mp_bar_bottom.modulate = Color(0,0,0,0)
 	else:

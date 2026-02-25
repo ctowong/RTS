@@ -19,9 +19,15 @@ func _set_unit_stats_list(value: Array[UnitStats]) -> void:
 func _update_ui() -> void:
 	if (not is_node_ready()):
 		await ready
+	
+	if unit_stats_list.size() == 0:
+		portrait_background.unit_stats = null
+		multi_unit_select_ui.hide()
+		unit_stat_detailed_ui.hide()
+		return
+	portrait_background.unit_stats = unit_stats_list[0]
 
 	if unit_stats_list.size() == 1:
-		portrait_background.unit_stats = unit_stats_list[0]
 		multi_unit_select_ui.hide()
 		unit_stat_detailed_ui.unit_stats = unit_stats_list[0]
 		unit_stat_detailed_ui.show()

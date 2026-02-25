@@ -82,7 +82,10 @@ func _handle_selection(event: InputEvent):
 							child.is_selected = true
 							selected_unit_stats.append(child.unit_stats)
 					battle_unit_selection_ui.unit_stats_list = selected_unit_stats
-					
+			if selected_units.size() == 0:
+				var temp_unit_stats_list: Array[UnitStats] = []
+				battle_unit_selection_ui.unit_stats_list = temp_unit_stats_list
+
 
 func _handle_movement(event: InputEvent):
 	if event.is_action("battle_action_command"):

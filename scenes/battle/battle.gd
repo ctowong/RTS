@@ -11,6 +11,8 @@ extends Node2D
 func _ready() -> void:
 	if not(is_node_ready()):
 		await(ready)
-
+	
+	var unit_stats_list: Array[UnitStats] = []
+	battle_unit_selection_ui.unit_stats_list = []
 	player_unit_input_handler.unit_handler = unit_handler
 	player_unit_input_handler.battle_unit_selection_ui = battle_unit_selection_ui

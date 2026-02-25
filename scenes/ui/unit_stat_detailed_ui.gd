@@ -14,6 +14,7 @@ const ARMOR_TYPE_COLORS: Dictionary[UnitStats.ArmorType, Color] = {
 
 @export var unit_stats: UnitStats: set = _set_unit_stats
 
+@onready var unit_name: Label = %UnitName
 @onready var damage_type_color_rect: ColorRect = %DamageTypeColorRect
 @onready var damage_type_label: Label = %DamageTypeLabel
 @onready var damage_value: Label = %DamageValue
@@ -42,6 +43,7 @@ func _update_ui():
 		await ready
 	
 	if (unit_stats):
+		unit_name.text = unit_stats.name
 		damage_type_color_rect.color = DAMAGE_TYPE_COLORS[unit_stats.damage_type] 
 		damage_type_label.text = unit_stats.DamageType.find_key(unit_stats.damage_type)
 		damage_value.text = "%.f" % unit_stats.attack_damage
