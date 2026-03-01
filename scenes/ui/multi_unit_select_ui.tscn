@@ -56,9 +56,11 @@ layout_mode = 2
 
 [node name="UnitStatMiniUI6" parent="MarginContainer/UnitGrid" unique_id=592888310 instance=ExtResource("2_pc7pn")]
 layout_mode = 2
+unit_stat = ExtResource("5_tuvej")
 
 [node name="UnitStatMiniUI2" parent="MarginContainer/UnitGrid" unique_id=1135084977 instance=ExtResource("2_pc7pn")]
 layout_mode = 2
+unit_stat = ExtResource("4_gtltt")
 
 [node name="UnitStatMiniUI3" parent="MarginContainer/UnitGrid" unique_id=225160938 instance=ExtResource("2_pc7pn")]
 layout_mode = 2
