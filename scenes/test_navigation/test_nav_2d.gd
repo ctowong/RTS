@@ -6,7 +6,7 @@ var movement_target_position: Vector2 = Vector2(60.0,20.0)
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var arrow: RayCast2D = $Arrow
 
-func _ready():
+func _ready() -> void:
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
 	navigation_agent.path_desired_distance = 20
@@ -23,17 +23,17 @@ func _input(event: InputEvent) -> void:
 
 
 
-func actor_setup():
+func actor_setup() -> void:
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 
 	# Now that the navigation map is no longer empty, set the movement target.
 	set_movement_target(movement_target_position)
 
-func set_movement_target(movement_target: Vector2):
+func set_movement_target(movement_target: Vector2) -> void:
 	navigation_agent.target_position = movement_target
 
-func _physics_process(delta):
+func _physics_process(_delta: float) -> void:
 	if navigation_agent.is_navigation_finished():
 		print("finished")
 		return
