@@ -23,11 +23,11 @@ const ARMOR_TYPE_COLORS: Dictionary[UnitStats.ArmorType, Color] = {
 @onready var armor_value: Label = %ArmorValue
 
 
-func _ready():
+func _ready() -> void:
 	pass
 
 
-func _set_unit_stats(value: UnitStats):
+func _set_unit_stats(value: UnitStats) -> void:
 	if (unit_stats != value and unit_stats):
 		if (unit_stats.stats_changed.is_connected(_update_ui)):
 			unit_stats.stats_changed.disconnect(_update_ui)
@@ -38,7 +38,7 @@ func _set_unit_stats(value: UnitStats):
 	_update_ui()
 
 
-func _update_ui():
+func _update_ui() -> void:
 	if (!is_node_ready()):
 		await ready
 	

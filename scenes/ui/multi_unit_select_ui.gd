@@ -34,7 +34,7 @@ func _update_unit_stats_list(value: Array[UnitStats]) -> void:
 	
 	unit_stats_list = value
 
-	var i = 0
+	var i: int = 0
 	for child in unit_stats_list:
 		mini_unit_stat_ui_list[i].unit_stat = child
 		i += 1

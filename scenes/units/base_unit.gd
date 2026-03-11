@@ -35,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 	unit_state_machine.move_and_slide()
 
 
-func move_to(new_target_position: Vector2):
+func move_to(new_target_position: Vector2) -> void:
 	target_position = new_target_position
 	unit_state_machine.recheck_ai()
 

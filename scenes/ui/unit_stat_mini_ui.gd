@@ -8,7 +8,7 @@ extends Control
 @export var unit_stat: UnitStats: set = _set_unit_stats
 
 
-func _set_unit_stats(value: UnitStats):
+func _set_unit_stats(value: UnitStats) -> void:
 	if not is_node_ready():
 		await ready
 	
