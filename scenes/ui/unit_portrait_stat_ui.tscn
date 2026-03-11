@@ -14,11 +14,11 @@ atlas = ExtResource("8_v32ux")
 region = Rect2(0, 19.578093, 64.74762, 24.374453)
 
 [node name="UnitPortraitStatUI" type="Control" unique_id=49733975]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 294.0
+offset_bottom = 314.0
 script = ExtResource("1_go1s7")
 unit_stats = ExtResource("2_v32ux")
 
@@ -44,19 +44,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = -30
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PortraitBackground/MarginContainer" unique_id=1750686324]
 layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
 
 [node name="UnitPortrait" type="TextureRect" parent="PortraitBackground/MarginContainer/VBoxContainer" unique_id=133985922]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_go1s7")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 
 [node name="HPBarBottom" type="NinePatchRect" parent="PortraitBackground/MarginContainer/VBoxContainer" unique_id=449679644]

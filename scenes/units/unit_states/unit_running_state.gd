@@ -30,7 +30,7 @@ func move_and_slide() -> bool:
 	last_position = unit.global_position
 	
 	
-	var vector_to_target = unit.target_position - unit.global_position
+	var vector_to_target: Vector2 = unit.target_position - unit.global_position
 
 	# If distance is too small, do not move
 	if vector_to_target.length() < MIN_MOVEMENT_POS_DELTA:
@@ -46,7 +46,7 @@ func move_and_slide() -> bool:
 	return unit.move_and_slide()
 	
 
-func _return_to_idle():
+func _return_to_idle() -> void:
 	unit.velocity = Vector2(0.0, 0.0)
 	transition_requested.emit(self, State.IDLE)
 

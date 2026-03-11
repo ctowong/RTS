@@ -18,6 +18,6 @@ func on_input(event: InputEvent) -> void:
 		transition_requested.emit(self, UnitState.State.RUNNING)
 
 
-func recheck_ai():
+func recheck_ai() -> void:
 	if abs(unit.global_position - unit.target_position).length() > MIN_MOVEMENT_POS_DELTA:
 		transition_requested.emit(self, UnitState.State.RUNNING)

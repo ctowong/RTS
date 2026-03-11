@@ -35,7 +35,7 @@ func move_and_slide() -> bool:
 	return false
 
 
-func recheck_ai():
+func recheck_ai() -> void:
 	pass
 
 

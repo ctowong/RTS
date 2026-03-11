@@ -18,7 +18,7 @@ func _ready() -> void:
 	mouse_selection_box.show()
 
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	#update_drag_area(event)
 	#_handle_selection(event)
 	#_handle_movement(event)
@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 
 
 
-func _handle_selection(event: InputEvent):
+func _handle_selection(event: InputEvent) -> void:
 	if event.is_action("battle_action_select"):
 		# unselect everything on click
 		for child in selected_units:
@@ -78,7 +78,7 @@ func _handle_selection(event: InputEvent):
 				pass
 
 
-func _handle_movement(event: InputEvent):
+func _handle_movement(event: InputEvent) -> void:
 	if event.is_action("battle_action_command"):
 		select_mouse_held_down = false
 		for unit in selected_units:

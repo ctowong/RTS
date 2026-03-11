@@ -12,7 +12,7 @@ extends Control
 @onready var unit_portrait: TextureRect = %UnitPortrait
 
 
-func _ready():
+func _ready() -> void:
 	_update_ui()
 
 

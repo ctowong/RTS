@@ -44,22 +44,22 @@ func create_instance() -> UnitStats:
 	return instance
 
 
-func _set_hp(value: float):
+func _set_hp(value: float) -> void:
 	hp = clamp(value, 0, max_hp)
 	stats_changed.emit()
 
 
-func _set_mp(value: float):
+func _set_mp(value: float) -> void:
 	mp = clamp(value, 0, max_mp)
 	stats_changed.emit()
 
 
-func _set_max_hp(value: float):
+func _set_max_hp(value: float) -> void:
 	max_hp = value
 	stats_changed.emit()
 	
 
-func _set_max_mp(value: float):
+func _set_max_mp(value: float) -> void:
 	max_mp = value
 	stats_changed.emit()
 
